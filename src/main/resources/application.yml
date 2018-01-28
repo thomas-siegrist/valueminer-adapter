@@ -1,0 +1,16 @@
+
+foobot:
+  api:
+    url: "https://api.foobot.io/v2/device/2D03466F188044A0/datapoint/300/last/300/"
+    key: "5d3f8181-2c7f-404a-a9a0-5416a7db304d"
+    secret: "eyJhbGciOiJIUzI1NiJ9.eyJncmFudGVlIjoic2lnaWJlQG1zbi5jb20iLCJpYXQiOjE0ODU4ODk5NDksInZhbGlkaXR5IjotMSwianRpIjoiNWQzZjgxODEtMmM3Zi00MDRhLWE5YTAtNTQxNmE3ZGIzMDRkIiwicGVybWlzc2lvbnMiOlsidXNlcjpyZWFkIiwiZGV2aWNlOnJlYWQiXSwicXVvdGEiOjIwMCwicmF0ZUxpbWl0Ijo1fQ.xUK2aedp0vdX8y4_ppvQ_efH-ZqItUdjFKh26FXlPAs"
+
+spring:
+  rabbitmq:
+      host: gopher.rmq.cloudamqp.com
+      port: 5672
+      username: ltcqhkha
+      password: Ayx2pSGnzuE7QHioAiw2qv04wDG0SjIR
+      virtual-host: ltcqhkha
+server:
+  port: 5000

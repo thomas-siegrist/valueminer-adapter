@@ -1,0 +1,19 @@
+{
+  "timestamp": 1486407388466,
+  "data": {
+    "datamodel": {
+      "id": "FOOBOT",
+      "name": "SymptoMe Indoor Sensors",
+      "version": "1.0"
+    },
+    "json": "{\"humidity\":56,\"dust\":50,\"co2\":40,\"temp\":25,\"pressure\":963,\"geo\":{\"lon\":7.523257,\"lat\":47.085317}}"
+  },
+  "categories": [
+    "SymptoMe",
+    "WeatherData"
+  ],
+  "tags": [
+    "ArduinoIndoor",
+    "DeviceId_01"
+  ]
+}
