@@ -1,5 +1,6 @@
 package ch.valueminer.service;
 
+import ch.valueminer.model.device.Device;
 import ch.valueminer.model.valueminer.ValueMinerInput;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ public class DataPublisherService {
 
     public void publish(ValueMinerInput valueMinerInput) {
         rabbit.convertAndSend(valueMinerInput);
+    }
+
+    public void publish(Device device) {
+        rabbit.convertAndSend(device);
     }
 
 }

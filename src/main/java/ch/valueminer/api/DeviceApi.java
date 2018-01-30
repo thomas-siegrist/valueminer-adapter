@@ -2,6 +2,8 @@ package ch.valueminer.api;
 
 import ch.valueminer.model.device.Device;
 import ch.valueminer.model.device.status.Status;
+import ch.valueminer.model.valueminer.ValueMinerInputFactory;
+import ch.valueminer.service.DataPublisherService;
 import ch.valueminer.service.DeviceRepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,9 @@ public class DeviceApi {
 
     @Autowired
     private DeviceRepositoryService devices;
+
+    @Autowired
+    private DataPublisherService dataPublisherService;
 
     @RequestMapping(
             path = "{deviceType}",
@@ -55,7 +60,11 @@ public class DeviceApi {
             @PathVariable(name = "deviceType") String deviceType,
             @PathVariable(name = "deviceId") String deviceId,
             @RequestBody Status status) {
-        devices.put(new Device(deviceId, status, deviceType));
+        Device device = new Device(deviceId, status, deviceType);
+
+        devices.put(device);
+        dataPublisherService.publish(ValueMinerInputFactory.from(device));
+
         return ResponseEntity.ok(status);
     }
 

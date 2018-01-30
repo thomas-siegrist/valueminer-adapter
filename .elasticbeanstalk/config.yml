@@ -1,4 +1,6 @@
 branch-defaults:
+  develop:
+    environment: valueminer-adapter-dev
   master:
     environment: valueminer-adapter-dev
     group_suffix: null

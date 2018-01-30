@@ -1,6 +1,8 @@
 package ch.valueminer.model.valueminer;
 
 import ch.valueminer.model.FoobotData;
+import ch.valueminer.model.device.Device;
+import ch.valueminer.utils.JsonUtil;
 
 /**
  * Created by thomas on 21.01.18.
@@ -8,8 +10,34 @@ import ch.valueminer.model.FoobotData;
 public class ValueMinerInputFactory {
 
     // ----------------------------------------------------------
-    // Foobot
+    // Device
     // ----------------------------------------------------------
+    public static ValueMinerInput from(Device device) {
+        ValueMinerInput valueMinerInput = new ValueMinerInput();
+        valueMinerInput.setTimestamp(System.currentTimeMillis());
+        valueMinerInput.setData(toValueMinerData(device));
+        valueMinerInput.addCategory(device.getDeviceType());
+        valueMinerInput.addCategory("Indoor");
+        valueMinerInput.addTag(device.getDeviceType());
+        valueMinerInput.addTag(device.getDeviceId());
+        return valueMinerInput;
+    }
+
+    private static ValueMinerData toValueMinerData(Device device) {
+        ValueMinerData valueMinerData = new ValueMinerData();
+        valueMinerData.setDataModel(toValueMinerDataModel(device));
+        valueMinerData.setJson(JsonUtil.toJson(device));
+        return valueMinerData;
+    }
+
+    private static ValueMinerDataModel toValueMinerDataModel(Device device) {
+        ValueMinerDataModel valueMinerDataModel = new ValueMinerDataModel();
+        valueMinerDataModel.setId(device.getDeviceType());
+        valueMinerDataModel.setName(device.getDeviceId());
+        valueMinerDataModel.setVersion("1.0");
+        return valueMinerDataModel;
+    }
+
 
     // ----------------------------------------------------------
     // Foobot
