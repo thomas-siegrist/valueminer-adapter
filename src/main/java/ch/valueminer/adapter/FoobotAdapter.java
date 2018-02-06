@@ -43,7 +43,7 @@ public class FoobotAdapter {
     @Autowired
     private DataPublisherService dataPublisherService;
 
-    @Scheduled(initialDelay = 10_000, fixedDelay = 300_000)
+    @Scheduled(initialDelay = 10_000, fixedDelay = 600_000)
     public void getDataFromFoobotApi() throws URISyntaxException {
         LOG.info("Scheduled: getting data from Foobot API");
 
