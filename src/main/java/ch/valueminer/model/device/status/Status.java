@@ -22,6 +22,7 @@ public class Status implements Serializable {
 
     public String type;
     public boolean power;
+    public Long lastAccess;
 
     @Override
     public String toString() {

@@ -1,9 +1,8 @@
 /Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/service/DataPublisherService.java
 /Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/model/valueminer/ValueMinerInputFactory.java
-/Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/model/valueminer/ValueMinerDataModel.java
+/Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/model/valueminer/DeviceIdentifier.java
 /Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/service/DeviceRepositoryService.java
 /Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/model/device/Device.java
-/Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/model/valueminer/ValueMinerData.java
 /Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/config/RabbitConfig.java
 /Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/config/SwaggerConfig.java
 /Users/thomas/workspace/bfh/valueminer-adapter/src/main/java/ch/valueminer/model/device/status/Status.java

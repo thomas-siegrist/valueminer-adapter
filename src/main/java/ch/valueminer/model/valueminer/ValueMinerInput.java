@@ -1,5 +1,7 @@
 package ch.valueminer.model.valueminer;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +12,22 @@ import java.util.List;
 public class ValueMinerInput implements Serializable {
 
     private Long timestamp;
-    private ValueMinerData data;
-    private List<String> categories = new ArrayList<>();
-    private List<String> tags = new ArrayList<>();
+    private DeviceIdentifier device;
+    private String json;
+    private List<String> categories;
+    private List<String> tags;
+
+    public void setDevice(DeviceIdentifier device) {
+        this.device = device;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
 
     public Long getTimestamp() {
         return timestamp;
@@ -20,14 +35,6 @@ public class ValueMinerInput implements Serializable {
 
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public ValueMinerData getData() {
-        return data;
-    }
-
-    public void setData(ValueMinerData data) {
-        this.data = data;
     }
 
     public List<String> getCategories() {
@@ -46,11 +53,25 @@ public class ValueMinerInput implements Serializable {
         this.tags = tags;
     }
 
-    public void addTag(String tag) {
-        tags.add(tag);
+    @Override
+    public String toString() {
+        return new ReflectionToStringBuilder(this).toString();
+    }
+
+    public DeviceIdentifier getDevice() {
+        return this.device;
     }
 
     public void addCategory(String category) {
+        if (categories == null)
+            categories = new ArrayList<>();
         categories.add(category);
     }
+
+    public void addTag(String tag) {
+        if (tags == null)
+            tags = new ArrayList<>();
+        tags.add(tag);
+    }
+
 }

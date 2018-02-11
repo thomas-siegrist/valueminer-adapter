@@ -16,11 +16,11 @@ public class DataPublisherService {
     private RabbitTemplate rabbit;
 
     public void publish(ValueMinerInput valueMinerInput) {
-        rabbit.convertAndSend(valueMinerInput);
+        rabbit.convertAndSend("", "Foobot", valueMinerInput);
     }
 
     public void publish(Device device) {
-        rabbit.convertAndSend(device);
+        rabbit.convertAndSend("", "Devices", device);
     }
 
 }

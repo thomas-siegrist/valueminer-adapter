@@ -15,29 +15,18 @@ public class ValueMinerInputFactory {
     public static ValueMinerInput from(Device device) {
         ValueMinerInput valueMinerInput = new ValueMinerInput();
         valueMinerInput.setTimestamp(System.currentTimeMillis());
-        valueMinerInput.setData(toValueMinerData(device));
-        valueMinerInput.addCategory(device.getDeviceType());
-        valueMinerInput.addCategory("Indoor");
-        valueMinerInput.addTag(device.getDeviceType());
-        valueMinerInput.addTag(device.getDeviceId());
+        valueMinerInput.setDevice(deviceIdentifier(device.getDeviceId(), device.getDeviceType()));
+        valueMinerInput.setJson(JsonUtil.toJson(device));
+        valueMinerInput.addCategory("Device");
         return valueMinerInput;
     }
 
-    private static ValueMinerData toValueMinerData(Device device) {
-        ValueMinerData valueMinerData = new ValueMinerData();
-        valueMinerData.setDataModel(toValueMinerDataModel(device));
-        valueMinerData.setJson(JsonUtil.toJson(device));
-        return valueMinerData;
+    private static DeviceIdentifier deviceIdentifier(String deviceId, String deviceType) {
+        DeviceIdentifier deviceIdentifier = new DeviceIdentifier();
+        deviceIdentifier.id = deviceId;
+        deviceIdentifier.type = deviceType;
+        return deviceIdentifier;
     }
-
-    private static ValueMinerDataModel toValueMinerDataModel(Device device) {
-        ValueMinerDataModel valueMinerDataModel = new ValueMinerDataModel();
-        valueMinerDataModel.setId(device.getDeviceType());
-        valueMinerDataModel.setName(device.getDeviceId());
-        valueMinerDataModel.setVersion("1.0");
-        return valueMinerDataModel;
-    }
-
 
     // ----------------------------------------------------------
     // Foobot
@@ -47,27 +36,11 @@ public class ValueMinerInputFactory {
             return null;
         ValueMinerInput valueMinerInput = new ValueMinerInput();
         valueMinerInput.setTimestamp(foobotData.getTimestamp());
-        valueMinerInput.setData(toValueMinerData(foobotData));
+        valueMinerInput.setDevice(deviceIdentifier(foobotData.getDeviceId(), "Foobot"));
+        valueMinerInput.setJson(foobotData.getJson());
         valueMinerInput.addCategory("AirQuality");
         valueMinerInput.addCategory("Indoor");
-        valueMinerInput.addTag("Foobot");
-        valueMinerInput.addTag(foobotData.getDeviceId());
         return valueMinerInput;
-    }
-
-    private static ValueMinerData toValueMinerData(FoobotData foobotData) {
-        ValueMinerData valueMinerData = new ValueMinerData();
-        valueMinerData.setDataModel(toValueMinerDataModel(foobotData));
-        valueMinerData.setJson(foobotData.getJson());
-        return valueMinerData;
-    }
-
-    private static ValueMinerDataModel toValueMinerDataModel(FoobotData foobotData) {
-        ValueMinerDataModel valueMinerDataModel = new ValueMinerDataModel();
-        valueMinerDataModel.setId("FOOBOT");
-        valueMinerDataModel.setName(foobotData.getDeviceId());
-        valueMinerDataModel.setVersion("1.0");
-        return valueMinerDataModel;
     }
 
 }

@@ -32,6 +32,10 @@ public class Device implements Serializable {
         return deviceType;
     }
 
+    public Long getLastAccess() {
+        return status.lastAccess;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,7 +44,6 @@ public class Device implements Serializable {
         Device device = (Device) o;
 
         return deviceId.equals(device.deviceId);
-
     }
 
     @Override
@@ -51,6 +54,10 @@ public class Device implements Serializable {
     @Override
     public String toString() {
         return new ReflectionToStringBuilder(this).toString();
+    }
+
+    public void visit() {
+        status.lastAccess = System.currentTimeMillis();
     }
 
 }

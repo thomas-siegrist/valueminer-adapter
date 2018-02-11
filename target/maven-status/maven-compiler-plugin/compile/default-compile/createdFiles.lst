@@ -2,9 +2,8 @@ ch/valueminer/model/FoobotData.class
 ch/valueminer/model/device/Device.class
 ch/valueminer/ValueminerAdapterApplication.class
 ch/valueminer/adapter/FoobotAdapter.class
-ch/valueminer/model/valueminer/ValueMinerDataModel.class
 ch/valueminer/api/DeviceApi.class
-ch/valueminer/model/valueminer/ValueMinerData.class
+ch/valueminer/model/valueminer/DeviceIdentifier.class
 ch/valueminer/model/valueminer/ValueMinerInputFactory.class
 ch/valueminer/service/DeviceRepositoryService.class
 ch/valueminer/config/RestConfig.class

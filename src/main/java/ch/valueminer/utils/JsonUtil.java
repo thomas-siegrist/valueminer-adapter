@@ -1,5 +1,6 @@
 package ch.valueminer.utils;
 
+import ch.valueminer.model.valueminer.ValueMinerInput;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

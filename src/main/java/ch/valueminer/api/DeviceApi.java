@@ -48,6 +48,7 @@ public class DeviceApi {
             return ResponseEntity.notFound().build();
         }
 
+        device.visit();
         return ResponseEntity.ok(device.getStatus());
     }
 
@@ -60,11 +61,13 @@ public class DeviceApi {
             @PathVariable(name = "deviceType") String deviceType,
             @PathVariable(name = "deviceId") String deviceId,
             @RequestBody Status status) {
+        status.lastAccess = System.currentTimeMillis();
         Device device = new Device(deviceId, status, deviceType);
 
         devices.put(device);
         dataPublisherService.publish(ValueMinerInputFactory.from(device));
 
+        device.visit();
         return ResponseEntity.ok(status);
     }
 
